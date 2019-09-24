@@ -9,6 +9,7 @@
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.11",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-s3": "^0.3.2",
     "gatsby-plugin-sharp": "^2.0.7",
     "gatsby-source-filesystem": "^2.0.4",
     "gatsby-source-storyblok": "^0.2.3",
@@ -25,6 +26,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "gatsby-plugin-s3 deploy",
     "start": "npm run develop",
     "test": "npm run eslint",
     "eslint": "eslint --ignore-path .gitignore .",
@@ -38,6 +40,7 @@
     "babel-eslint": "^10.0.3",
     "commitlint": "^8.2.0",
     "cz-conventional-changelog": "^3.0.2",
+    "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
@@ -48,10 +51,9 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "eslint-plugin-standard": "^4.0.1",
+    "fs": "^0.0.1-security",
     "husky": "^3.0.5",
-    "prettier": "^1.18.2",
-    "dotenv": "^8.1.0",
-    "fs": "^0.0.1-security"
+    "prettier": "^1.18.2"
   },
   "repository": {
     "type": "git",
