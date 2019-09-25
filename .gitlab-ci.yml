@@ -1,10 +1,14 @@
+image: node:10.14.0
+
+cache:
+  paths:
+    - node_modules/
 
 
 deploy-development:
   before_script:
     - mkdir -p ~/.aws
     - echo "[default]" >> ~/.aws/config
-    - cat $AWS_ACCESS
     - echo "aws_access_key_id = " $AWS_ACCESS >> ~/.aws/config
     - echo "aws_secret_access_key = HIqAbYgyr5qIF92xgv5TMYnf419AUan5OFZeqpPz" >> ~/.aws/config
     - cat ~/.aws/config
