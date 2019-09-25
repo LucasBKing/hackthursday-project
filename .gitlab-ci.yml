@@ -6,9 +6,9 @@ cache:
 
 deploy-development:
   before_script:
-    - python -v
+    - python3 -v
   stage: deploy
   script:
-    - python -v
+    - python3 -v
   only:
     - dev
