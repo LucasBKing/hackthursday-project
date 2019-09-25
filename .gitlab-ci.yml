@@ -8,8 +8,8 @@ deploy-development:
   before_script:
     - mkdir -p ~/.aws
     - echo "[default]" >> ~/.aws/config
-    - echo "aws_access_key_id = AKIAIU7XN3RK6SYUCZKQ" >> ~/.aws/config
-    - echo "aws_secret_access_key = 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"
+    - echo "aws_access_key_id = " $AWS_ACCESS >> ~/.aws/config
+    - echo "aws_secret_access_key = HIqAbYgyr5qIF92xgv5TMYnf419AUan5OFZeqpPz" ~/.aws/config
     - cat ~/.aws/config
   stage: deploy
   script:
