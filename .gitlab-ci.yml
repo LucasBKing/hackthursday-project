@@ -7,5 +7,5 @@ cache:
 deploy-development:
   before_script:
     - python -v
-  only
+  only:
     - dev
