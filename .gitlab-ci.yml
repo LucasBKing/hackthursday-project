@@ -6,9 +6,13 @@ cache:
 
 deploy-development:
   before_script:
-    - python3 -v
+    - mkdir -p ~/.aws
+    - echo "[default]" >> ~/.aws/config
+    - echo "aws_access_key_id = AKIAIU7XN3RK6SYUCZKQ" >> ~/.aws/config
+    - echo "aws_secret_access_key = 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"
+    - cat ~/.aws/config
   stage: deploy
   script:
-    - python3 -v
+    - cat ~/.aws/config
   only:
     - dev
