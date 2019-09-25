@@ -1,0 +1,11 @@
+image: node:10.14.0
+
+cache:
+  paths:
+    - node_modules/
+
+deploy-development:
+  before_script:
+    - python -v
+  only
+    - dev
