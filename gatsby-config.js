@@ -5,12 +5,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-s3',
-      options: {
-        bucketName: process.env.BUCKET_PROD || process.env.BUCKET_DEV
-      }
-    },
-    {
       resolve: 'gatsby-transformer-sharp'
     },
     {
