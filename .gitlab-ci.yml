@@ -9,11 +9,14 @@ deploy-development:
   before_script:
     - mkdir -p ~/.aws
     - echo "[default]" >> ~/.aws/config
-    - echo "aws_access_key_id = " $AWS_ACCESS >> ~/.aws/config
-    - echo "aws_secret_access_key = HIqAbYgyr5qIF92xgv5TMYnf419AUan5OFZeqpPz" >> ~/.aws/config
+    - echo "aws_access_key_id ="$AWS_ACCESS >> ~/.aws/config
+    - echo "aws_secret_access_key ="$AWS_SECRET >> ~/.aws/config
     - cat ~/.aws/config
+    - echo "GATSBY_TOKEN_PUBLIC="$GATSBY_TOKEN_PUBLIC >> .env
+    - echo "BUCKET_DEV="$BUCKET_DEV >> .env
   stage: deploy
   script:
-    - cat ~/.aws/config
+    - yarn install
+    - yarn build && yarn deploy -y
   only:
     - dev
