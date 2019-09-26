@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import PerfilItem from './perfil_item'
 import styled from 'styled-components'
+import Spinner from './spinner'
 import { getStories } from '../lib/storyblok'
+import JsonViewer from './json-viewer'
 
 const PerfilComponent = props => {
   const [stories, setStories] = useState(null)
   const [perfis, setPerfis] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const getPerfilStories = async () => {
     try {
@@ -22,7 +25,6 @@ const PerfilComponent = props => {
 
   useEffect(() => {
     if (stories) {
-      console.log(stories)
       const filtered = stories.map(perfil => [
         {
           uuid: perfil.uuid,
@@ -32,22 +34,38 @@ const PerfilComponent = props => {
         }
       ])
       setPerfis(filtered)
+      setIsLoading(false)
     }
   }, [stories])
 
   return (
-    <TodoSection>
+    <section>
       <CenteredContent>
-        {perfis && perfis.map(item => <PerfilItem key={item[0].uuid} item={item[0]} />)}
+        <div>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            perfis &&
+            perfis.map((item, index) => (
+              <PerfilItem key={item[0].uuid} item={item[0]} odds={index % 2 === 0 ? 'primary' : 'secondary'} />
+            ))
+          )}
+        </div>
+        <RightSide>
+          <JsonViewer content={stories} />
+        </RightSide>
       </CenteredContent>
-    </TodoSection>
+    </section>
   )
 }
+const RightSide = styled.div`
+  margin-left: 2%;
+  max-width: 48%;
+`
 const CenteredContent = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  align-items: flex-start;
+  flex-direction: row;
 `
-const TodoSection = styled.section``
 export default PerfilComponent

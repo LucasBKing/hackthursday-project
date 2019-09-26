@@ -4,14 +4,16 @@ import styled from 'styled-components'
 
 const PerfilItem = props => {
   const {
-    item: { title, name, url }
+    item: { title, name, url },
+    odds
   } = props
   const customButton = {
     content: 'Link perfil',
-    style: 'primary',
+    style: odds,
     size: 'small',
     link: url
   }
+
   return (
     <TodoBox>
       <div>
@@ -37,5 +39,11 @@ const TodoBox = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   margin-bottom: 5px;
+  h4 {
+    font-weight: bold;
+  }
+  span {
+    font-weight: bold;
+  }
 `
 export default PerfilItem

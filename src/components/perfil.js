@@ -7,6 +7,7 @@ const Perfil = props => {
     blok: { title, title_width, name, description, avatar, timestamp, skills, color, button_home }
   } = props
 
+  console.log(button_home)
   const buttonHome = {
     content: button_home[0].content,
     size: button_home[0].size,
@@ -17,10 +18,7 @@ const Perfil = props => {
     <CenteredDiv>
       <Button content={buttonHome.content} style={buttonHome.style} size={buttonHome.size} url={buttonHome.link} />
       <PerfilBox>
-        <Header color={color}>
-          <h2>Perfil: </h2>
-          {title && <h2>{title}</h2>}
-        </Header>
+        <Header color={color}>{title && <h2>{title}</h2>}</Header>
 
         <CharHeader>
           {avatar && <Avatar src={`https:${avatar}`} />}
@@ -32,7 +30,7 @@ const Perfil = props => {
           {description && <Desc>{description}</Desc>}
           {skills && (
             <SkillsBox>
-              <SkillsTitle>Skills:</SkillsTitle>
+              <span>Skills:</span>
               <span>{skills}</span>
             </SkillsBox>
           )}
@@ -75,18 +73,25 @@ const Avatar = styled.img`
   margin-right: 20px;
   border-radius: 50%;
 `
-const SkillsTitle = styled.span``
-const Created = styled.span``
+const Created = styled.span`
+  font-size: 20px;
+`
 const SkillsBox = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  span {
+    font-size: 20px;
+    font-weight: bold;
+  }
 `
 const Desc = styled.p`
   max-width: 70%;
   margin-right: 5%;
+  font-size: 20px;
 `
 const Name = styled.h2`
+  font-weight: bold;
   max-width: ${({ customWidth }) => `${customWidth}px`};
 `
 const ContentBox = styled.div`
