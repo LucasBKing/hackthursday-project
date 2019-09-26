@@ -1,16 +1,18 @@
 import Page from './page'
-import Grid from './grid'
-import Teaser from './teaser'
-import Feature from './feature'
-import NavItem from './nav_item'
+import Header from './header'
+import Button from './button'
+import Perfil from './perfil'
+import PerfilItem from './perfil_item'
+import PerfilComponent from './perfil_component'
 import ComponentNotFound from './component_not_found'
 
 const ComponentList = {
   page: Page,
-  grid: Grid,
-  teaser: Teaser,
-  feature: Feature,
-  nav_item: NavItem
+  header: Header,
+  button: Button,
+  perfil: Perfil,
+  perfil_item: PerfilItem,
+  perfil_component: PerfilComponent
 }
 
 const Components = type => {

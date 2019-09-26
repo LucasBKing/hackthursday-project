@@ -38,6 +38,12 @@ exports.createPages = ({ graphql, actions: { createPage } }) =>
         if (result.errors) {
           return reject(result.errors)
         }
+        if (process.env.ENV !== 'production') {
+          createPage({
+            path: '/editor',
+            component: path.resolve('src/pages/editor.js')
+          })
+        }
         const entries = result.data.stories.edges
 
         entries.forEach(entry => {

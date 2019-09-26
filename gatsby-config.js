@@ -7,6 +7,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-sharp'
     },
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-storyblok',
       options: {
